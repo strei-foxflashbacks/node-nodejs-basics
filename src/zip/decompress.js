@@ -1,5 +1,4 @@
 import { createGunzip } from 'node:zlib';
-import { pipeline } from 'node:stream';
 import fs from 'fs';
 import path from 'path';
 

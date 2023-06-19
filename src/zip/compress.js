@@ -1,5 +1,4 @@
 import { createGzip } from 'node:zlib';
-import { pipeline } from 'node:stream';
 import fs from 'fs';
 import path from 'path';
 
@@ -17,9 +16,7 @@ const compress = async () => {
     const input = fs.createReadStream(fileToCompress);
     const gzip = createGzip();
     const output = fs.createWriteStream(outputPath);
-    pipeline(input, gzip, output, (err) => {
-        if (err) throw err;
-    })
+    input.pipe(gzip).pipe(output);
 };
 
 await compress();
