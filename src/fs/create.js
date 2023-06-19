@@ -1,9 +1,9 @@
 import fs from 'fs';
 
-import files from '../variables.js';
+import filesFolder from '../variables.js';
 
 const create = async () => {
-    const fresh = `${files}/fresh.txt`;
+    const fresh = `${filesFolder}/fresh.txt`;
     fs.access(fresh, (err) => {
         if (!err) {
             throw new Error('FS operation failed');
