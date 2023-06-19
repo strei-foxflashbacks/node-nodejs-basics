@@ -16,7 +16,7 @@ const performCalculations = async () => {
         const worker = new Worker(pathToWorker, {
             workerData: 10 + i,
         });
-        const message = await new Promise((resolve) => {
+        await new Promise((resolve) => {
             worker.on('message', (message) => {
                 output.push({
                     status: 'resolved',
